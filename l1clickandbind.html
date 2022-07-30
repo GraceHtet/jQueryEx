@@ -1,0 +1,56 @@
+<!-- 16/5/22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Click And Bind Event</title>
+</head>
+<body>
+
+<h1>Welcome to jQuery</h1>
+<h3>This is awesome js library</h3>
+
+<button type="button" id="clickme" class="clickme">Clickme</button>
+
+<button type="button" id="singleclick">Single Click Me</button>
+
+<button type="button" id="doubleclk">Double Click Me</button>
+
+
+
+
+
+
+<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+	console.log('hey');
+
+	// jquery ကသူရေးဖို့နေရာလေးသတ်မှတ်ပြီးရေးရ
+	// $ က jquery ရဲ့ code js ကမသိ 
+	// jquery မချိတ်ထားရင် or မချိတ်မိနေရင် errorပြနေလိမ့်မယ်
+
+	$(document).ready(function(){
+
+		// $('#clickme') - with id
+		// $('.clickme') - with class
+		//$('button') - element
+
+		$('#clickme').click('click',function(){
+				console.log('i am working by click');
+		});
+
+
+		$('#singleclick').bind('click',function(){
+			console.log('i am single click by bind');
+		});
+
+		$("#doubleclk").bind('dblclick',function(){
+			console.log("i am double click by bind") + this.nodeName;
+		})
+
+	});
+
+</script>
+</body>
+</html>

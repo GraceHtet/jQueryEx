@@ -1,0 +1,431 @@
+<!-- 8Jun22,13Jun22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Effects Method</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			flex-direction: column;
+		}
+		.container{
+			width: 900px;
+			background-color: #f4f4f4;
+			padding: 20px;
+
+			display: flex;
+		}
+		.box{
+			width: 150px;
+			height: 300px;
+
+			color: #fff;
+			font-size: 48px;
+			text-align: center;
+			line-height: 300px;
+
+			margin: auto;
+		}
+		.square1{
+			background-color: darkolivegreen;
+		}
+		.square2{
+			background-color: darkorchid;
+		}
+		.square3{
+			background-color: darkslateblue;
+		}
+		.square4{
+			background-color: darkkhaki;
+		}
+		.square5{
+			background-color: darkturquoise;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="box square1">1</div>
+		<div class="box square2">2</div>
+		<div class="box square3">3</div>
+		<div class="box square4">4</div>
+		<div class="box square5">5</div>
+	</div>
+
+	<div class="control">
+		<button type="button" id="hidebtn">Hide</button>
+		<button type="button" id="showbtn">Show</button>
+		<button type="button" id="tgbtn">Toggle</button>
+
+		<button type="button" id="fdoutbtn">fadeOut</button>
+		<button type="button" id="fdinbtn">fadeIn</button>
+		<button type="button" id="fdtgbtn">fadeToggle</button>
+		<button type="button" id="fdtobtn">fadeTo</button>
+
+		<button type="button" id="sldupbtn">slideUp</button>
+		<button type="button" id="slddownbtn">slideDown</button>
+		<button type="button" id="sldtgbtn">slideToggle</button>
+
+		<button type="button" id="anibtn">animate</button>
+		<button type="button" id="dlybtn">delay</button>
+		<button type="button" id="clickmebtn">Click Me </button>
+		<button type="button" id="stopbtn">Stop</button>
+		<button type="button" id="stoptruebtn">Stop(true)</button>
+		<button type="button" id="finishbtn">finish</button>
+		<button type="button" id="dqbtn">dequeue</button>
+		<button type="button" id="cqbtn">clearQueue</button>
+
+	</div>
+
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// 1s-1000ms
+
+			// (i) Display Effects;
+
+			// hide() - elements ရော spacing ရောhideလုပ် (include both element and spacing)
+			// $(selector).hide();
+			// $(selector).hide(speed);
+			// $(selector).hide(speed,callbackfun);
+			$('#hidebtn').click(function(){
+
+				// $('.square1').hide();
+				// $('.square1,.square3').hide();
+				// $('.box').even().hide();
+
+				// $('.box').odd().hide(1000);
+				// $('.box').even().hide("slow"); - default keyword ပုံမှန်ထက် နည်းနည်းနှေး
+
+				$('.square1').hide(1000,function(){
+					$('.square2,.square3').hide(1500,function(){
+						$(".square4,.square5").hide(2000);
+					});
+				});
+
+			});
+
+			// show()
+			// $(selector).show();
+			// $(selector).show(speed);
+			// $(selector).show(speed,callbackfun);
+			$("#showbtn").click(function(){
+			// $(".square1").show();
+			// $(".square2,.square5").show();
+
+			// $(".box").even().show(1000);
+			// $(".box").odd().show("slow");
+
+				$('.square1').show(1000,function(){
+					$('.square2,.square3').show(1500,function(){
+						$(".square4,.square5").show(2000);
+					});
+				});
+			});
+
+			// toggle()
+			// $(selector).toggle();
+			// $(selector).toggle(speed);
+			// $(selector).toggle(speed,callbackfun);
+			$("#tgbtn").click(function(){
+				// $(".square1").toggle();
+				// $(".square2,.square5").toggle();
+
+				// $(".box").even().toggle(1000);
+				// $(".box").odd().toggle("slow");
+
+				$('.square1').toggle(1000,function(){
+					$('.square2,.square3').toggle(1500,function(){
+						$(".square4,.square5").toggle(2000);
+					});
+				});
+			});
+
+
+			// _______________________________________________________________
+
+			// (ii) Fading effect
+
+			// fadeOut() - elements ရော spacing ရောhideလုပ် (include both element and spacing) 
+			// 				hideလိုမျိုးပျောက်သွား effectပဲကွာ
+			// fadeOut()
+			// $(selector).fadeOut();
+			// $(selector).fadeOut(speed);
+			// $(selector).fadeOut(speed,callbackfun);
+			$("#fdoutbtn").click(function(){
+			// $(".square1").fadeOut();
+			// $(".square2,.square5").fadeOut();
+
+			// $(".box").even().fadeOut(1000);
+			// $(".box").odd().fadeOut("slow");
+
+				$('.square1').fadeOut(1000,function(){
+					$('.square2,.square3').fadeOut(1500,function(){
+						$(".square4,.square5").fadeOut(2000);
+					});
+				});
+			});
+
+
+			// fadeIn() - showလိုမျိုး ပေါ်လာ effctပဲကွာ
+			// fadeIn()
+			// $(selector).fadeIn();
+			// $(selector).fadeIn(speed);
+			// $(selector).fadeIn(speed,callbackfun);
+			$("#fdinbtn").click(function(){
+			// $(".square1").fadeIn();
+			// $(".square2,.square5").fadeIn();
+
+			// $(".box").even().fadeIn(1000);
+			// $(".box").odd().fadeIn("slow");
+
+				$('.square1').fadeIn(1000,function(){
+					$('.square2,.square3').fadeIn(1500,function(){
+						$(".square4,.square5").fadeIn(2000);
+					});
+				});
+			});
+
+
+			// fadeToggle() - toggle နဲ့တူ effctပဲကွာ
+			// fadeToggle()
+			// $(selector).fadeToggle();
+			// $(selector).fadeToggle(speed);
+			// $(selector).fadeToggle(speed,callbackfun);
+			$("#fdtgbtn").click(function(){
+				// $(".square1").fadeToggle();
+				// $(".square2,.square5").fadeToggle();
+
+				// $(".box").even().fadeToggle(1000);
+				$(".box").odd().fadeToggle("slow");
+
+				// $('.square1').fadeToggle(1000,function(){
+				// 	$('.square2,.square3').fadeToggle(1500,function(){
+				// 		$(".square4,.square5").fadeToggle(2000);
+				// 	});
+				// });
+			});
+
+
+			// fadeTo() - opacity တစ်ခုအထိ ဖျောက်လိုက်တာ လုံးဝကြီးပျောက်လိုက်တာမဟုတ်
+			// 			- opacity only ပဲဖျောက် spacing ကျန်
+			// fadeTo()
+			// $(selector).fadeTo(speed,opacity);
+			// $(selector).fadeTo(speed,opaciyt,callbackfun);
+			$("#fdtobtn").click(function(){
+				// $(".square1").fadeTo(1000,0.5);
+				// $(".square2,.square5").fadeTo(1000,0);
+
+				// $(".box").even().fadeTo(1000,0.2);
+				// $(".box").odd().fadeTo("slow",0.8);
+
+				$('.square1').fadeTo(1000,0,function(){
+					$('.square2,.square3').fadeTo(1500,0.3,function(){
+						$(".square4,.square5").fadeTo(2000,0.6);
+					});
+				});
+			});
+
+			// _______________________________________________________________
+
+			// (iii) Sliding effect
+
+			// slideUp
+			// slideUp() - elements ရော spacing ရောhideလုပ် (include both element and spacing) 
+			// 				hideလိုမျိုးပျောက်သွား effectပဲကွာ
+			// slideUp()
+			// $(selector).slideUp();
+			// $(selector).slideUp(speed);
+			// $(selector).slideUp(speed,callbackfun);
+			$("#sldupbtn").click(function(){
+				// $(".square1").slideUp();
+				// $(".square2,.square5").slideUp();
+
+				// $(".box").even().slideUp(1000);
+				// $(".box").odd().slideUp("slow");
+
+				$('.square1').slideUp(1000,function(){
+					$('.square2,.square3').slideUp(1500,function(){
+						$(".square4,.square5").slideUp(2000);
+					});
+				});
+			});
+
+
+			// slideDown() - showလိုမျိုး ပေါ်လာ effctပဲကွာ
+			// slideDown()
+			// $(selector).slideDown();
+			// $(selector).slideDown(speed);
+			// $(selector).slideDown(speed,callbackfun);
+			$("#slddownbtn").click(function(){
+			// $(".square1").slideDown();
+			// $(".square2,.square5").slideDown();
+
+			// $(".box").even().slideDown(1000);
+			// $(".box").odd().slideDown("slow");
+
+				$('.square1').slideDown(1000,function(){
+					$('.square2,.square3').slideDown(1500,function(){
+						$(".square4,.square5").slideDown(2000);
+					});
+				});
+			});
+
+			// slideToggle() - toggle နဲ့တူ effctပဲကွာ
+			// slideToggle()
+			// $(selector).slideToggle();
+			// $(selector).slideToggle(speed);
+			// $(selector).slideToggle(speed,callbackfun);
+			$("#sldtgbtn").click(function(){
+				// $(".square1").slideToggle();
+				// $(".square2,.square5").slideToggle();
+
+				// $(".box").even().slideToggle(1000);
+				// $(".box").odd().slideToggle("slow");
+
+				$('.square1').slideToggle(1000,function(){
+					$('.square2,.square3').slideToggle(1500,function(){
+						$(".square4,.square5").slideToggle(2000);
+					});
+				});
+			});
+
+			// _______________________________________________________________
+
+			// (iii) other effect
+
+			// animate()
+			// $(selector).animate({paras});
+			// $(selector).animate({paras},speed);
+			// $(selector).animate({paras},speed,callbackfun);
+			$("#anibtn").click(function(){
+				// $(".square1").animate({"height":"50%"});
+				// $(".square2,.square5").animate({"height":"50%"});
+
+				// $(".box").even().animate({"height":"50%"},1000);
+				// $(".box").odd().animate({"height":"50%"},"fast");
+
+				$('.square1').animate({"height":"50%"},1000,function(){
+					$('.square2,.square3').animate({"height":"50%"},1500,function(){
+						$(".square4,.square5").animate({"height":"50%"},2000);
+					});
+				});
+			});
+
+
+
+			// delay() - effectတွေရဲ့ timing ကို delay ဖြစ်ဖို့(transition delayလိုပဲ)
+			// 		   - except css() (css methodနဲ့ တွဲလုပ်လို့ အလုပ်မဖြစ်
+			// 			cuz css already has transition delay)
+			//  		- delay() အနောက်မှာ ကိုယ်delay ဖြစ်စေချင်တဲ့ effectတစ်ခုခုထည့်ပေးဖို့လို
+
+			// $(selector).delay(speed);
+			// $(selector).delay(speed,callbackfun);
+			$("#dlybtn").click(function(){
+				// $('.square1').fadeOut(2000);
+				// $('.square1').delay(1000).fadeOut(2000);
+				$('.square1').delay("slow").slideUp("fast");
+				$('.square2').delay("fast").hide("slow");
+				$('.square3').delay(1000).fadeOut();
+			});
+
+
+
+			// queue() - method ဘယ်နှခု ဘယ်နှဆင့်လုပ်လဲဆိုတာစစ်ပေးတာ
+			// var sq1 = $(".square1");
+			// sq1.animate({"height":100},"slow");
+			// sq1.animate({"height":200},"slow");
+			// sq1.animate({"height":300},"slow");
+			// sq1.animate({"height":200},"slow");
+			// sq1.animate({"height":150},"slow");
+
+			// console.log(sq1.queue());
+			// console.log(sq1.queue().length);
+
+			$("#clickmebtn").click(function(){
+				$('.square1').html("<i style='font-size:16px;'>I am ready to start now</i>").animate({"width":"500px"},2000);
+
+				$('.square1').html("<i style='font-size:14px;'>oh,did you click stop btn!!! </i>").animate({"width":"200px"},2000);
+
+				$('.square1').html("<i style='font-size:14px;'>oh,did you click stop btn!!! </i>").animate({"width":"150px"},1000);
+
+				$('.square1').html("<i style='font-size:14px;'>oh,did you click stop btn!!! </i>").animate({"width":"300px"},1000);
+			});
+
+			// stop() - တစ်ခါနှိပ်ရင် ရောက်လက်စqueue(လုပ်ဆောင်ချက်)တစ်ခုကိုအဆုံးသတ်ပြီး ကျန်တဲ့ဟာတွေဆက်လုပ်
+			// 		  - နောက်တစ်ချက်နှိပ်ရင် နောက်တစ်ခုဆက်ရပ်
+			$("#stopbtn").click(function(){
+				$('.square1').stop();
+			});
+
+			// stop(true) - ရောက်လက်စနေရာတင်ရပ်သွား ဆက်မလုပ်တော့ဘူး
+			$("#stoptruebtn").click(function(){
+				$('.square1').stop(true);
+			});
+
+			// လုပ်ဆောင်ချက်အကုန်အဆုံးသတ်ကိုတန်းရောက်သွားစေ
+			$("#finishbtn").click(function(){
+				$('.square1').finish();
+			});
+
+
+			// dequeue()
+			$("#dqbtn").click(function(){
+				var div5 = $('.square5');
+
+
+				// div5.animate({'width':'300px','height':300},"slow");
+				// div5.animate({'width':'200px','height':200},"slow");
+				// div5.css("background","cadetblue");
+
+				// queue() အပေါ်က လုပ်ဆောင်ချက်တွေအကုန်ပြီးသွားမှ သူ့ထဲက လုပ်ဆောင်ချက်ဝင်
+				// 		 - တစ်ခါလုပ်ပြီးသွားရင် ထပ်လုပ်လို့မရတော့ဘူးး
+				// div5.animate({'width':'300px','height':300},"slow");
+				// div5.animate({'width':'200px','height':200},"slow");
+				// div5.queue(function(){
+				// 	div5.css("background","cadetblue");
+				// });
+
+				// dequeue() - လုပ်ဆောင်ချက်ကို အစကနေပြန်လုပ်လို့ရတယ်လို့ပြော
+				div5.animate({'width':'300px','height':300},"slow");
+				div5.animate({'width':'200px','height':200},"slow");
+				div5.queue(function(){
+					div5.css("background","cadetblue");
+					div5.dequeue();
+				});
+				div5.slideUp('slow');
+				div5.slideDown('slow');
+				console.log('Total Queue: = '+ div5.queue().length);
+
+			});
+
+			// clearQueue() - ရောက်လက်စ queue(လုပ်ဆောင်ချက်)တစ်ခုကိုပဲ ပြီးအောင်အထိလုပ်ပေးပြီး ကျန်နေတဲ့ လုပ်ဆောင်ချက်တွေကို ဆက်အလုပ်မလုပ်
+			$("#cqbtn").click(function(){
+				$(".square1").clearQueue();
+			});
+		});
+
+	</script>
+</body>
+</html>
+
+<!-- 
+jquery Effects
+
+
+(i) display effects = hide() / show() / toggle()
+(ii) fading effects = fadeIn() / fadeOut() / fadeToggle() / fadeTo()
+(iii) sliding effects = slideDown() / slideUp() / slideToggle()
+(iv) other effects = animate() /delay() / stop() / finish() / queue() /dequeue() / clearQueue()
+
+ -->

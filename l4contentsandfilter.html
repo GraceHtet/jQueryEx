@@ -1,0 +1,67 @@
+<!-- 17/5/22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contents and Filter Method</title>
+</head>
+<body>
+
+	<h1>This is awesome <u>js library</u></h1>
+	<h1>Are you ready to learn jQuery?</h1>
+
+	<h2>This is awesome<i> javascript library.</i></h2>
+	<h2>Are you ready to learn jQuery?</h2>
+
+<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	console.log('hey');
+
+	// jQuery မှာ parameter တစ်ခုထက်ပိုပြီလှမ်းခေါ်ချင်ရင် '' or "" ထဲမှာပဲ , ခံပြီးပေး
+
+	// content ကပါတဲ့ objectတွေကို အပိုင်းအပိုင်းလေးတွေအဖြစ် ခွဲပြီးသတ်မှတ်ပေးတယ်
+	// array အနေနဲ့ပြောင်းပေးတယ် tagအပိုင်းအပိုင်းလေးတွေကို
+	// Eg. h1 tagတွေမှာဆို text နှစ်ခုရှိမယ် U တစ်ခုရှိမယ်
+	// content()က text() နဲ့ပဲတွဲလို့ရ
+
+	// filter()က elementတွေကို စစ်ထုတ်ပေးနိုင်
+	// မရှိတဲ့ element ကိုစစ်ရင် empty အနေနဲ့ပဲထွက် errorမတက်
+
+	$(document).ready(function(){
+		console.log('hi');
+
+		var gettext =$('h1').contents();
+		console.log(gettext);
+
+		gettext =$('h1').contents().text();
+		console.log(gettext);
+
+		gettext=$('h1,h2').contents();
+		console.log(gettext);
+
+		gettext=$('h1,h2').contents().text();
+		console.log(gettext);
+
+		gettext=$('h1').contents().filter("u");
+		console.log(gettext);
+
+		gettext=$('h1').contents().filter("u").text();
+		console.log(gettext);
+
+		gettext=$('h1,h2').contents().filter("u").text();
+		console.log(gettext);
+
+		gettext=$('h1,h2').contents().filter('u,i,b').text();
+		console.log(gettext);
+
+		// undefined
+		gettext=$('h1').contents().html();
+		console.log(gettext);
+
+
+	});
+
+
+</script>
+</body>
+</html>

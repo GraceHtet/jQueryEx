@@ -1,0 +1,145 @@
+<!-- 30May22 & 31May22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>attr(),removeAttr(),addClass(),removeClass(),hasClass(),toggleClass() method</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: 	center;
+			align-items: center;
+		}
+		.container{
+			width: 800px;
+			background: #f4f4f4;
+			padding: 20px;
+		}
+		.text-primary{
+			color:blue;
+		}
+		.text-light{
+			color: #fff;
+		}
+		.bg-info{
+			background-color: lightskyblue	;
+		}
+		.text-center{
+			text-align: center;
+		}
+		.underline{
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div>
+			<img src="./img/logo2.png" width="200px"  alt="logo2"/>
+			<h1 id="1" >Hello Myanmar</h1>
+			<h1 id="2">Hello Thailand</h1>
+			<h1 id="3">Hello Indonesia</h1>
+			<h1 id="4">Hello Srilanka</h1>
+		</div>
+
+		<button type="button" id="txtpri">text-primary</button>
+		<button type="button" id="bginfo">bg-info</button>
+		<button type="button" id="txtbg">textlight-bginfo</button>
+		<button type="button" id="multibtn">Multi Attr</button>
+		<button type="button" id="rmattr">Remove attr</button>
+
+
+		<button type="button" id="txtcnt">text-center</button>
+		<button type="button" id="rmclass">remove text-light</button>
+		<button type="button" id="hasclass">has class</button>
+		<button type="button" id="togclass">toggle class</button>
+	</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			console.log('hi');
+
+			// attr
+
+			// attr() - set attribute နဲ့တူ
+			// $(selector).attr(attribute,value);
+			// multiပေးချင်ရင် css()method လိုမျိုး object နဲ့ရေးဖို့လို
+
+			$('#txtpri').click(function(){
+				$('h1').attr("class","text-primary");
+			});
+
+			$('#bginfo').click(function(){
+				$('h1').attr("class","bg-info");
+			});
+
+			$("#txtbg").click(function(){
+				$('h1').attr("class","bg-info text-light");
+			});
+
+			$("#multibtn").click(function(){
+				$("img").attr({
+					"alt":"logo3",
+					"width":"300px",
+					"src":"./img/logo3.png",
+					"title":"this is title"
+				});
+			});
+
+
+			//removeAttr() 
+			// multi ဖျက်ရင် တခြားဟာတွေလိုမျိုး comma ခံလို့မရ space ပဲခြားပေး
+
+			// $("#rmattr").click(function(){
+			// 	$("h1").removeAttr("class");
+			// });
+
+			$("#rmattr").click(function(){
+				$("img").removeAttr("width title");
+			});
+
+// _____________________________________________
+
+			// class
+			// multi ပေးချင်ရင် single parameter ကိုမှ space ခြား
+
+			// addClass()
+			// $(selector).addClass()
+			// classမရှိသေးရင် အသစ်အနေနဲ့ ဝင်လာ
+			// ရှိပြီးသားဆိုရင်တော့ အနောက်ကနေဝင်
+			
+			$("#txtcnt").click(function(){
+				// $('h1').addClass("text-center");
+
+				$('h1').addClass("underline text-center");
+
+			});
+
+
+			// removeClass()
+			$("#rmclass").click(function(){
+				// $("h1").removeClass("text-light");
+
+				$('h1').removeClass("text-light bg-info");
+
+			});
+
+			// hasClass()
+			$("#hasclass").click(function(){
+				window.alert($("h1").hasClass("text-center"));
+			});
+
+			// toggleClass()
+			$("#togclass").click(function(){
+				$("h1").toggleClass("text-center");
+			});
+
+		});
+	</script>
+</body>
+</html>

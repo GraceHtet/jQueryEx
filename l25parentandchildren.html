@@ -1,0 +1,178 @@
+<!-- 6Jun22,7Jun22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>parent and children Method</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			flex-direction: column;
+		}
+		.container{
+			width: 900px;
+			background-color: #f1f1f1;
+			padding: 20px;
+
+			display: flex;
+		}
+		.box{
+			width: 150px;
+			height: 300px;
+			color: #fff;
+
+			margin: 0 10px;
+		}
+		.square1{
+			background-color: limegreen;
+		}
+		.square2{
+			background-color: seagreen;
+		}
+		.square3{
+			background-color: forestgreen;
+		}
+		.square4{
+			background-color: springgreen;
+			color: #000;
+		}
+		.square5{
+			background-color: darkolivegreen;
+		}
+	</style>
+</head>
+<body>
+
+	<div>
+		<h1>parent & children Method</h1>
+		<p> This is awesome jQuery version 3.6</p>
+	</div>
+
+	<div class="container">
+		<div class="box square1">Box 1</div>
+		<hr/>
+		<div class="box square2">Box 2</div>
+		<hr/>
+		<div class="box square3">Box 3</div>
+		<hr/>
+		<div class="box square4">Box 4</div>
+		<hr/>
+		<div class="box square5">Box 5</div>
+	</div>
+
+	<div>
+		<p>Hay guys!!! What's your plan after class.</p>
+	</div>
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// parent() - ရှိပြီးသား parent ကိုလှမ်းခေါ်
+			// $(".box").click(function(){
+			// 	$(this).parent().css({
+			// 		"background":"yellow",
+			// 		"box-shadow":"5px 5px 10px rgba(0,0,0,0.5)",
+			// 		"border":"3px dashed #000"
+			// 	});
+			// });
+
+
+
+			// children()
+			// $(".container").click(function(){
+			// 	$(this).children().css({
+			// 		"background":"orangered",
+			// 		"box-shadow":"3px 3px 5px rgba(0,0,0,0.5)",
+			// 		"border":"10px dotted #000"
+			// 	});
+			// });
+
+			// $(".container").click(function(){
+			// 	$(this).children('.square1').css({
+			// 		"background":"blue",
+			// 		"box-shadow":"3px 3px 5px rgba(0,0,0,0.5)",
+			// 		"border":"10px solid #000"
+			// 	});
+			// });
+
+			// $(".container").click(function(){
+			// 	$(this).children('.square3,.square5').css({
+			// 		"background":"blue",
+			// 		"box-shadow":"3px 3px 5px rgba(0,0,0,0.5)",
+			// 		"border":"10px solid #000"
+			// 	});
+			// });
+
+
+
+			// siblings() - siblingဆိုတာ အများကြီးရှိလို့ s ထည့်ဖို့မမေ့နဲ့
+			// $('.square1').click(function(){
+				// $(this).siblings().css("background","violet");
+
+			// 	$(this).siblings('.square2,.square5').css("background","violet");
+			// });
+
+
+
+			// :nth-of-type()
+			// with no. , odd,  even,  formula
+			$('.square1').click(function(){
+				// $(".box:nth-of-type(1)").css("background","goldenrod");
+				// $(".box:nth-of-type(2)").css("background","goldenrod");
+
+				// $(".box:nth-of-type(odd)").css("background","goldenrod");
+				// $(".box:nth-of-type(even)").css("background","goldenrod");
+
+				// $(".box:nth-of-type(1n)").css("background","goldenrod");
+				// $(".box:nth-of-type(2n)").css("background","goldenrod");
+				// $(".box:nth-of-type(2n+1)").css("background","goldenrod");
+				// $(".box:nth-of-type(3n+1)").css("background","goldenrod");
+			})
+
+
+
+			// :nth-child()
+			// with no. , odd,  even,  formula
+			$(".square1").click(function(){
+				// $(".box:nth-child(1)").css("background-color","grey");
+				// $(".box:nth-child(2)").css("background-color","grey");
+				// $(".box:nth-child(3)").css("background-color","grey");
+
+				// $(".box:nth-child(odd)").css("background-color","grey");
+
+				// $(".box:nth-child(even)").css("background-color","red");
+
+				// $(".box:nth-child(1n)").css("background","grey");
+				// $(".box:nth-child(2n)").css("background","grey");
+				$(".box:nth-child(2n+1)").css("background","grey");
+			});
+
+
+
+			// next()
+			// $('.container').click(function(){
+			// 	$(this).next().css({
+			// 		"background-color":"goldenrod",
+			// 		"color":"#fff"
+			// 	});
+			// });
+
+
+			// prev()
+			$('.container').click(function(){
+				$(this).prev().css({
+					"background-color":"hotpink",
+					"color":"#fff",
+					"padding":"20px"
+				});
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!-- 18jul22 -->
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create New Job</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+
+		}
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container{
+			width: 500px;
+			background-color: #f4f4f4;
+			padding: 10px;
+
+		}
+		.form-group{
+			margin: 10px 0;
+		}
+		.form-group label{
+			display: block;
+			margin-bottom: 5px;
+		}
+		.form-control{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form action="" method="">
+
+			<div class="form-group">
+				<label for="todojob">Todo Job</label>
+				<input type="text" name="todojob" id="todojob" class="form-control" placeholder="Enter Something" />
+			</div>
+
+			<div class="form-group">
+				<label for="joblists">Job Lists</label>
+				<select name="joblists" id="joblists" class="form-control">
+					<option selected disabled>Choose a job</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<button type="submit" disabled>Add New Job</button>
+			</div>
+		</form>
+	</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+
+			var phfortodojob = "Enter your new job";
+			$('#todojob').val(phfortodojob).focusin(function(){
+				$(this).val("");
+			}).focusout(function(){
+				if($.trim($(this).val()) !== ""){
+					$('[type=submit]').removeAttr('disabled');
+				}else{
+					$('[type=submit]').attr('disabled',true);
+				}
+			});
+
+
+			$("form").submit(function(e){
+				// console.log("working");
+
+				var gettodojob = $("#todojob");
+				// console.log(gettodojob.val());
+
+				// ($.trim(gettodojob.val()) !== ''
+				if(jQuery.trim(gettodojob.val()).length > 0 ){
+
+					if(window.confirm("Are you sure to add new job!!!")){
+						$("#joblists").append(`<option>${gettodojob.val()}</option>`);
+						gettodojob.val("").focus();
+					}else{
+						window.alert("New job was cancelled");
+						gettodojob.val("");
+						gettodojob.focus();
+					}
+				}else{
+					window.alert("Enter your new job");
+				}
+
+				e.preventDefault();;
+			})
+		});
+	</script>
+</body>
+</html>

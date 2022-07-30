@@ -1,0 +1,92 @@
+<!-- 1June22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>width Method</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 80px;
+
+			margin: 5px; /*no action*/
+			padding: 10px; /*action on innerWidth & outerWidth*/
+			border: 5px solid #ccc; /*action on outerwidth only*/
+		}
+		.box2{
+			width: 200px;
+			height: 80px;
+		}
+		.box3{
+			width: 300px;
+			height: 80px;
+		}
+		.box4{
+			width: 400px;
+			height: 80px;
+		}
+		.box5{
+			width: 500px;
+			height: 80px;
+		}
+		.text-center{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1" style="background-color:indianred;">Box 1</div>
+		<div class="box2" style="background-color:forestgreen;">Box 2</div>
+		<div class="box3" style="background-color:orangered;">Box 3</div>
+		<div class="box4" style="background-color:cornflowerblue;">Box 4</div>
+		<div class="box5" style="background-color:blueviolet;">Box 5</div>
+	</div>	
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// innerwidth က padding only ကိုပဲထည့်တွက်
+			// outerwidth က padding+border ကိုတွက်
+			// width ကို overwriteလုပ်ချင်ရင်လည်းသုံးလို့ရ
+			// overwriteလိုဖို့ဆိုရင် number only ပဲထည့်လည်းရ မဟုတ်ဘဲ pxထည့်လည်းရ
+
+			$('.box1').click(function(){
+				console.log('Box 1 Width = ' + $(this).width() + "px");
+
+				console.log('Box 1 Inner Width = ' + $(this).innerWidth() + "px");
+
+				console.log('Box 1 Outer Width = ' + $(this).outerWidth() + "px");
+			});
+			$('.box2').click(function(){
+				console.log('Box 2 Width = ' + $(this).width() + "px");
+
+				$(this).width($(".box5").width());
+			});
+			$('.box3').click(function(){
+				console.log('Box 3 Width = ' + $(this).width() + "px");
+			});
+			$('.box4').click(function(){
+				console.log('Box 4 Width = ' + $(this).width() + "px");
+			});
+
+			var cuswidth = 1000;
+			$('.box5').click(function(){
+				console.log('Box 5 Width = ' + $(this).width() + "px");
+
+				// px ပါပါ မပါပါ ရ
+				$(this).width(cuswidth).addClass('text-center');
+				// $(this).width('800px')
+			});
+		});
+
+	</script>
+</body>
+</html>

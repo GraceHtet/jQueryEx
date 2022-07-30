@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mouse Event</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container{
+			width: 500px;
+			background: #f4f4f4;
+			box-shadow: 5px 10px 10px rgbas(0,0,0,0.5);
+
+			padding: 20px;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="box"></div>
+
+	</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			// console.log('hi');
+ 
+			// mouseenter() - mouse တင်လာတဲ့တစ်ချိန်ပဲအလုပ်လုပ် ပြန်ထွက်သွားတဲ့အချိန်ဖြစ်ဖြစ် အထဲမှာ mouseရွှေ့ကြည့်နေတာပဲဖြစ်ဖြစ် အလုပ်မလုပ်
+			// $('.container').mouseenter(function(){
+			// 	console.log('i am working by using mouse enter');
+			// });
+
+			// mouseover()- mouseဝင်လာတဲ့အချိန်အလုပ်လုပ်၊ သူ့ရဲ့ childတွေထဲထပ်ဝင်ရင်လည်း ထပ်အလုပ်လုပ်၊ ထွက်သွားရင်တော့အလုပ်မလုပ်တော
+			// $('.container').mouseover(function(){
+			// 	console.log('i am working by using mouse over');
+			// });
+
+			// mouseleave() - mouseက သတ်မှတ်ထားတဲ့နေရာcontainerကနေထွက်သွားတဲ့အချိန် အလုပ်လုပ်
+			// $('.container').mouseleave(function(){
+			// 	console.log('i am working by using mouse leave');
+			// });
+
+			// mouseout() - mouseက containerကနေအပြင်ကိုထွက်သွားတဲ့အချိန်ဖြစ်ဖြစ်, သူ့ child တွေထဲကို ဝင်တဲ့အချိန်ဖြစ်ဖြစ်, 
+			// 				ထွက်တဲ့အချိန်ဖြစ်ဖြစ်အလုပ်လုပ
+			// 			  - child မှာပဲ သက်ရောက်မှုရှိတယ် mouseover()လိုမျိုး
+			// $('.container').mouseout(function(){
+			// 	console.log('i am working by moue out');
+			// });
+
+			// hover(infun()-အဝင်အတွက် function, outfun() - အထွက်အတွက် function)
+			// $('.box').hover(function(){
+			// 	// for in
+			// 	$(this).css('background','indianred');
+			// },
+			// function(){
+			// 	// for out
+			// 	$(this).css('background','steelblue');
+
+			// });
+
+			// $('.container').hover(function(){
+			// 	$(this).css('background','lightpink');
+			// });
+
+			// mousedown() - mouseကိုဖိလိုက်တဲ့အချိန်အလုပ်လုပ် 
+			$('.box').mousedown(function(){
+				console.log('i am working by using mouse down');
+			});
+
+			// mouseup() - mouseကိုဖိပြီးကြွလိုက်တဲ့အချိန် 
+			$('.box').mouseup(function(){
+				console.log('i am working by using mouse up');
+			});
+
+		});
+
+	</script>
+</body>
+</html>

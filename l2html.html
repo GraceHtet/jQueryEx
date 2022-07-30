@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html Method</title>
+</head>
+<body>
+	<h1>Welcome to jQuery</h1>
+	<p>This is awesome js library.</p>
+	<button>Click Me</button>
+
+
+<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	console.log('hey');
+
+	$(document).ready(function(){
+
+		// html codeတွေကို လှမ်းပြောင်းချင်ရင်သုံးတာ
+		console.log('hi');
+		console.log($('h1').html());
+		console.log($('p').html());
+		console.log($('button').html());
+
+
+		// window.alert($('p').html());
+
+		// $('button').click('click',function(){
+		// 	console.log('hey i am working');
+		// });
+
+		$('button').click(function(){
+			// console.log('hey i am click');
+
+			// $('h1').html('hello jQuery');
+
+			// $('h1').html("Hello <i>jQuery</i>");
+
+			$('h1').html("Hello <i style='color:peachpuff;'>jQuery</i>");
+		});
+
+
+
+	});
+
+</script>
+<body>
+</html>

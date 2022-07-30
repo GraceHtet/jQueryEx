@@ -1,0 +1,146 @@
+<!-- 20Jul22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SMS Template - Single</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container{
+			width: 500px;
+			background: #f4f4f4;
+			padding: 10px;
+		}
+		.form-group{
+			margin: 10px  0;
+		}
+		.form-group	label{
+			display: block;
+			margin-bottom: 5px;
+		}
+		.form-control{
+			width: 100%;
+		}
+		.justify-content-end{
+			display: flex;
+			justify-content: end;
+		}
+		#message{
+			/*text area ကိုဆွဲလို့မရအောင်
+			*/
+			resize: none;
+			/*resize: horizontal; horizontal only sizeချဲ့လို့ရ
+			resize: vertical; vertical only ပဲ size ချဲ့လို့ရ*/
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<form action="" method="">
+			<div class="form-group">
+				<label for="number">Mobile Number (FA Number)</label>
+				<input type="text" name="number" id="number" class="form-control" placeholder="09123456789"/>
+			</div>
+
+			<div class="form-group">
+				<label for="message">Message</label>
+				<textarea name="message" id="message" class="form-control" rows="5" placeholder="Enter your sms" disabled></textarea>
+				<span id="charcounts"></span> <span>(</span><b id="totalsms">0</b><span>/5 SMS)</span>
+			</div>
+
+			<div class="form-group	justify-content-end">
+				<button type="submit" disabled>Send</button>
+			</div>
+		</form>
+
+	</div>	
+
+
+
+	
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log('hello');
+
+			$("#message").attr("maxlength",100);
+
+			var maxlength = $("#message").attr("maxlength");
+
+			$("#charcounts").text(maxlength + " characters are remaining.");
+
+			$("#number").keyup(function(){
+
+				if($.trim($(this).val()) !== "" && $.trim($(this).val().length) >= 9){
+					$('#message').removeAttr('disabled');
+				}else{
+					$('#message	').attr('disabled',true);
+					$('[type=submit]').attr('disabled',true);
+				}
+			});
+
+
+
+			$("#message").keyup(function(){
+
+				var getsmslength = $(this).val().length;
+				// console.log(getsmslength);
+
+				var remainingchars = maxlength - getsmslength;
+
+				$("#charcounts").text(remainingchars + "characters are remaining");
+
+				if(getsmslength === 0){
+					$("#totalsms").text("0");
+				}else if(getsmslength <= 20){
+					$("#totalsms").text("1");
+				}else if(getsmslength <= 40){
+					$("#totalsms").text("2");
+				}else if(getsmslength <= 60){
+					$("#totalsms").text("3");
+				}else if(getsmslength <= 80){
+					$("#totalsms").text("4");
+				}else{
+					$("#totalsms").text("5");
+				}
+
+				if($.trim($(this).val()) !== ""){
+					$('[type=submit]').removeAttr('disabled');
+				}else{
+					$('[type=submit]').attr('disabled',true);
+				}
+			});
+
+			$("form").submit(function(e){
+				var getdatas={
+					number : $("#number").val(),
+					message : $("#message").val()
+				};
+
+				console.log(getdatas);
+
+				e.preventDefault();
+			});
+		});
+	</script>
+</body>
+</html>
+
+<!-- Bulk Sms -->
+<!-- Inbound sms - ကိုယ့်ဆီကို အဝင်စာတွေပဲလက်ခံလို့ရ စာပြန်ပို့လို့မရ
+	Outbound sms - ကိုယ်ကပဲပို့လို့ရ ဟိုဘက်က ကိုယ့်ဆီပြန်ပို့လို့ မရ 
+	DTI Service - စာကို ကိုယ့်company nameနဲ့ပို့လို့ရ
+	
+	sms apiဝယ်ရင်
+	api နဲ့ platform နှစ်ခုရ -->

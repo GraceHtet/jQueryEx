@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>:empty & :not() selector</title>
+	<style>
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.box{
+			width: 200px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="container">
+		
+
+		<h1>my Fav Colors</h1>
+		<ul>
+			<li>Red</li>
+			<li>Green</li>
+			<li>Orange</li>
+			<li></li>
+			<li>Blue</li>
+			<li>Yellow</li>
+			<li></li>
+			<li>Navy</li>
+		</ul>
+
+		<hr/>
+
+		<h1>my Fav Fruits</h1>
+		<ol>
+			<li>Apple</li>
+			<li></li>
+			<li>Orange</li>
+			<li></li>
+			<li></li>
+			<li>Mango</li>
+			<li></li>
+			<li>Peach</li>
+		</ol>
+
+		<div class="box">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p>Hello I'm p tag</p>
+
+		</div>
+
+
+	</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			console.log('hi');
+
+			// :empty - tab နှစ်ခုကြားအလွတ်တွေရှိခဲ့ရင် အဲ့နေရာအတွက်
+			// $(':empty').css('background','yellowgreen');
+
+			// $('ul li:empty').css('background','yellowgreen');
+			// $('ol li:empty').css('background','yellowgreen');
+
+			$('p:empty').css('background','red');
+
+			// :not() - အဲဒါ မဟုတ်တဲ့ကောင်
+			// $('li:not(ol li)').css('background','yellowgreen');
+
+			$('li:not(:empty)').css("background","hotpink");
+			// $('li:not(ul li:empty)').css('background','pink');
+			
+		});
+	</script>
+</body>
+</html>

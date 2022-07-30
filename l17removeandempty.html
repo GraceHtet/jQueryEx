@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>remove,empty,detach and add btn</title>
+</head>
+<body>
+
+	<div>
+		<h1>Hello Heading Tag H1</h1>
+		<h2>Hello Heading Tag H2</h2>
+		<h3>Hello Heading Tag H3</h3>
+		<h2>Hello Heading Tag H2</h2>
+		<h1>Hello Heading Tag H1</h1>
+		<span>Hello, I'm span tag</span>
+	</div>
+
+	<div>
+		<h1>Hello Heading Tag H1</h1>
+		<h2>Hello Heading Tag H2</h2>
+		<h3>Hello Heading Tag H3</h3>
+		<h2 class="headingh2">Hello Heading Tag H2</h2>
+		<h1>Hello Heading Tag H1</h1>
+		<span>Hello, I'm span tag</span>
+	</div>
+
+	<button type="button" id="removebtn">Remove</button>
+
+	<button type="button" id="emptybtn">Empty</button>
+
+	<button type="button" id="detachbtn">Detach</button>
+
+	<button type="button" id="addbtn">Add</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		console.log('hi');
+
+		// window.document also is ok
+		// $(window.document).ready(function(){
+		// 	console.log('hello');
+		// });
+
+		// jQuery is the same as $
+		// jQuery(document).ready(function(){
+		// 	console.log("what's up");
+		// });
+
+		// jQuery(window.document).ready(function(){
+		// 	console.log('ni hao');
+		// });
+
+		// or u can write window in front of jQuery
+		// window.jQuery(document).ready(function(){
+		// 	console.log('mingalarbar');
+		// });
+
+		$(document).ready(function(){
+			// console.log('hey');
+
+			// remove() -  ကွကိုယ် removeလုပ်တာ including child elements
+			$('#removebtn').click(function(){
+
+				// $('h1').remove();
+				// $('h1,h2').remove();
+				$('div').remove();
+			});
+
+			// empty() - ကွကိုယ်မဖျက်ဘူး childတွေအကုန်လုံးကိုပဲ ဖျက်
+
+			$('#emptybtn').click(function(){
+				$('div').empty();
+			});
+
+			// detach() - remove() နဲ့တူ ကွကိုယ်ဖျက်
+			$('#detachbtn').click(function(){
+				$('div').detach();
+
+				
+			});
+
+
+			// add() - gp နဲ့ ခေါ်တဲ့ပုံစံနဲ့အတူတူပဲ add() method နဲ့ခေါ်လိုက်တာပဲပိုသွားတာ
+			$('#addbtn').click(function(){
+
+				// $('h1,.headingh2').css({
+				// 	'background-color':'yellow',
+				// 	'border':'3px solid red'
+				// });
+
+				// $('h1').add("span").css({
+				// 	'background-color':'yellow',
+				// 	'border':'3px solid red'
+				// });
+
+				//  $('h1').add("span,h2").css({
+				// 	'background-color':'yellow',
+				// 	'border':'3px solid red'
+				// });
+
+				// $('h1,h3').add("span,h2").css({
+				// 	'background-color':'yellow',
+				// 	'border':'3px solid red'
+				// });
+
+				$('h1').add("span").add("h3").css({
+					'background-color':'yellow',
+					'border':'3px solid red'
+				});
+			});
+
+
+		});
+	</script>
+</body>
+</html>

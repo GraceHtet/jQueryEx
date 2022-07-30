@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>delegate & undelegate Method</title>
+</head>
+<body>
+
+	<h1>Hello Myanmar</h1>
+	<h1>Hello Thailand</h1>
+	<h2>Hello Srilinka</h2>
+
+
+	<button type="button" id="dlgbtn">delegate</button>
+	<button type="button" id="undlgbtn">undelegate</button>
+	<button type="button" id="hibtn">say Hi</button>
+	<button type="button" id="zbtn">Zoom</button>
+
+	<hr/>
+
+	<div class="container">
+		<h3>Hello Indonesia</h3>
+		<button type="button" id="dlgmebtn">delegate Me</button>
+		<button type="button" id="undlgmebtn">Undelegate Me </button>
+	</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		// clone() ကိုမှ before နဲ့ after နဲ့တွဲပြီးအလုပ်လုပ်
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// delegate
+			// syntax
+			// $(selector).delegate(selector,eventtype,function)
+
+			$("body").delegate('#dlgbtn','click',function(){
+				// $('h1').prepend('<p>Thanks for Delegate me</p>');
+				// $('h1').append('<p>Thanks for Delegate me</p>');
+				// $('h1').before('<p>Thanks for Delegate me</p>');
+				$('h1').after('<p>Thanks for Delegate me</p>');
+			});
+
+			// undelegate
+			// delegate btn ရဲ့ လုပ်ဆောင်ချက်တွေကိုပဲဖြုတ်ပေးတာ
+			// တခြားbtn တွေရဲ့ လုပ်ဆောင်ချက်တွေကိုမဖြုတ်ပေး
+
+			$('#undlgbtn').click(function(){
+				// clickကထည့်လည်းရတယ် မထည့်လည်းရ ဘာလို့ဆို delegate ကိုပြန်ဖြုတ်မှာမို့ 
+				$('body').undelegate('click');
+			});
+
+			$('#hibtn').click(function(){
+				console.log('hi');
+			});
+
+			var x=0;
+			$('#zbtn').click(function(e){
+
+				$('h2').css({
+					'font-size':'+=10px'
+				});
+
+				$('#zbtn').text('Zoom '+ (x+1));
+
+				x++;
+
+				if(x >= 3){
+					$('body').undelegate(e);
+
+					// လက်ရှိရှိနေတဲ့ နှိပ်လိုက်တဲ့ elementနဲ့သက်ဆိုင်တဲ့ informationအကုန် ကိုလှမ်းယူတာ
+					// this နဲ့ လှမ်းသုံးလို့မရ - e.target tagတစ်ခုပဲလှမ်းယူတာ
+				}
+
+			});
+
+			$("div").delegate('#dlgmebtn','click',function(){
+
+				$('h3').after('<p>Thanks for delegate me again</p>');
+			});
+
+			$('#undlgmebtn').click(function(){
+				$('.container').undelegate();
+			});
+		});
+
+	</script>
+</body>
+</html>

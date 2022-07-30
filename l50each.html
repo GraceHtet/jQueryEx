@@ -1,0 +1,54 @@
+<!-- 18July22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>each Method</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<ul class="colors">
+			<li title="red">Red</li>
+			<li title="red">Green</li>	
+			<li title="red">Blue</li>		
+		</ul>
+
+		<button  id="btn">Show single color</button>
+	</div>
+	
+
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log("hi");
+
+			// js က foreach နဲ့ဆင်
+			// $("#btn").click(function(){
+			// 	$("ul").children().each(function(idx){
+			// 		// console.log(idx);
+			// 		console.log($(this).text());
+			// 	});
+			// });
+
+			$(".colors li").each(function(){
+				// console.log(idx);
+				var getindex=$(this).index();
+				var gettext=$(this).text();
+				var gettitle=$(this).attr('title');
+				console.log(`Index is ${getindex} and text is ${gettext} and value is ${gettitle}.`);
+			})
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!-- 6Jun22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>wrap and unwrap Method</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container{
+			width: 500px;
+			background-color: #c5c5c5;
+
+			padding: 10px;
+		}
+		.box{
+			width: 100px;
+			height: 80px;
+			background-color: darkorchid;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Box 1</h1>
+
+		<button type="button" id="divbtn">Div Btn</button>
+
+		<button type="button" id="boxbtn">Box Btn</button>
+
+		<button type="button" id="unboxbtn">UnBox Btn</button>
+	</div>
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			// wrap() - parent တစ်ခုထပ်အုပ်ပေးတာ(parent မရှိသေးတဲ့ကောင်ကို) 
+					// that parent could be div or p or anything else
+			$("#divbtn").click(function(){
+				$('h1').wrap("<div></div>");
+			});
+
+			$("#boxbtn").click(function(){
+				$("h1").wrap("<div class='box'></div>");
+			});
+
+
+			// unwrap() - parent တစ်လွှာချင်းစီဖြုတ်ပေးတာ တစ်ခါနှိပ်တာရဲ့ ခေါ်ထားတဲ့ selectorရဲ့ ရှိရှိသမျှ parent အကုန်မပြုတ်
+			//  တစ်ခါနှိပ်ရင် parentတစ်ခုပြုတ်
+			$("#unboxbtn").click(function(){
+				$("h1").unwrap();
+			});
+		});
+	</script>
+</body>
+</html>

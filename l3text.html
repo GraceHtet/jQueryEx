@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>text Method</title>
+</head>
+<body>
+
+	<h1>This is awsome <u>js library</u></h1>
+
+	<h1>save myanmar</h1>
+
+	<h1>pray myanmar</h1>
+
+	<hr/>
+
+	<h2>This is awsome <u>js library</u></h2>
+
+	<h2>save myanmar</h2>
+
+	<h2>pray myanmar</h2>
+
+	<hr/>
+
+	<h3>This is awsome <u>js library</u></h3>
+
+	<h3>save myanmar</h3>
+
+	<h3>pray myanmar</h3>
+
+	<hr/>
+
+	<h4>This is awsome <u>js library</u></h4>
+
+	<h4>save myanmar</h4>
+
+	<h4>pray myanmar</h4>
+
+
+
+<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+	// html() vs text()
+
+	// html() - လှမ်းခေါ်ရင် first one ပဲ လှမ်းခေါ်လို့ရ , 
+	//		  - overwrite လုပ်ရင်တော့ ရှိသမျှ same name element တိုင်းမှာ အလုပ်လုပ်
+	// 		  - overwrite လုပ်ရင် html codeတေွပါ copy ယူပေး
+
+	console.log('hey');
+
+	$(document).ready(function(){
+		// console.log('hi');
+
+		// html() to html()
+
+		// console.log($('h1').html());
+
+		// console.log($('h1').html("it's me"));
+
+		// var getfirsth1 = $('h1:first').html();
+
+		var getfirsth1 = $('h1:first').html();
+
+
+		$('h1:last').html(getfirsth1);
+	});
+
+
+	// text() - လှမ်းခေါ်ရင် ရှိသမျှ same name element အကုန်ခေါ်ပေးတယ် စာသားတွေကိုreturnပြန်ပေး
+	// 		  - copy overwrite လုပ်တဲ့အချိန် စာသားonly ပဲယူ html code တွေမပါ
+	// 		  - html code တွေကိုမဖတ်နိုင်
+
+
+	$(document).ready(function(){
+
+		// console.log($('h2').html());
+
+		console.log($('h2').text());
+
+		const getfirsth2=$('h2:first').text();
+
+		$('h2:last').text(getfirsth2);
+
+	});
+
+	// html() to text()
+
+	$(document).ready(function(){
+
+		let getfirsth3 = $('h3:first').html();
+
+		$('h3:last').text(getfirsth3);
+	});
+
+
+	// text() to html()
+
+	$(document).ready(function(){
+
+		let getfirsth4 = $('h4:first').text();
+
+		$('h4:last').html(getfirsth4);
+	});
+
+</script>
+
+</body>
+</html>

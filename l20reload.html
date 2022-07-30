@@ -1,0 +1,35 @@
+<!-- 31May22 -->
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+	<div>
+		<h1>Refresh or Reload a page with jQuery</h1>
+		<p id="display"></p>
+		<button type="button">Reload</button>
+	</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+
+
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// reload() - parameter က true နဲ့ false ရှိ trueမထည့်လည်းအလုပ်တော့ဖြစ်
+			$("button").click(function(){
+				location.reload(true);
+			});
+
+			var getdate = new Date();
+			document.getElementById('display').textContent= getdate;
+
+		});
+	</script>
+</body>
+</html>

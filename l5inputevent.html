@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Input Event</title>
+	<style type="text/css">
+		body{
+			width: 100%;
+			height: 100vh;
+
+			display: flex;
+			justify-content:center;
+			align-items: center	;
+		}
+		.container{
+			width: 500px;
+			background: 	#f4f4f4;
+			padding: 20px;
+		}
+		.form-group{
+			margin: 20px 0;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<form aciton="" method="">
+
+			<div class="form-group">
+				<label for="firstname">First Name</label>
+				<input type="text" name="firstname" id="firstname" class="form-control" autocomplete="	off" />
+			</div>
+
+			<div class="form-group">
+				<label for="lastname">Last Name</label>
+				<input type="text" name="lastname" id="lastname" class="form-control" autocomplete="	off" />
+			</div>
+
+			<div class="form-control">
+				<label for="country">Country</label>
+				<select name="country" id="country" class="form-control	">
+					<option selected disabled>Choose a country</option>
+					<option value="m">Myanmar</option>
+					<option value="th">Thailand</option>
+					<option value="indo">Indonesia</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="age">age</label>
+				<input type="number" name="age" id="age" class="form-control" autocomplete="	off" />
+			</div>
+
+			<div class="form-group">
+				<label for="phone">Phone</label>
+				<input type="number" name="phone" id="phone" class="form-control" autocomplete="	off" />
+			</div>
+
+			<div class="form-group">
+				<label for="nrc">Nrc</label>
+				<input type="text" name="nrc" id="nrc" class="form-control" autocomplete="	off" />
+			</div>
+
+			<button>Submit</button>
+
+		</form>
+	</div>
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		// console.log('hi');
+
+		$(document).ready(function(){
+			// console.log('hey');
+
+			// blur() - cursorတစ်ချက်ချပြီး ပြန်ထွက်လိုက်တာနဲ့ အလုပ်လုပ်(cursorထွက်သွားတာနဲ့အလုပ်လုပ်)
+			// $('#firstname').blur(function(){
+			// 	console.log('firstname is working by blur');
+			// });
+
+			// change() - input valueတစ်ခုခုပြောင်းသွားမှ အလုပ်လုပ်
+			// 			- space ပါသွားတာတို့ capital letter အဖြစ်ပြောင်းသွားတာတို့ ဘာတို့ဆို အလုပ်လုပ်
+			// $('#firstname').change(function(){
+			// 	console.log('firstname is working by change');
+			// });
+
+			// $('select').change(function(){
+			// 	console.log('You changed to new country');
+			// });
+
+			// focus()- cursorချလိုက်တာနဲ့အလုပ်လုပ်
+			// $('#lastname').focus(function(){
+			// 	console.log('lastname is working by focus');
+			// });	
+
+			// focusin() - focus() နဲ့တူ cursor ချလိုက်တာနဲ့အလုပ်လုပ်
+			// $('#lastname').focusin(function(){
+			// 	console.log('lastname is working by focusin.');
+			// });
+
+			// focusout() - blur() နဲ့တူ cursor ထွက်သွားမှ အလုပ်လုပ်
+			// $('#lastname').focusout(function(){
+			// 	console.log('lastname is working by focusout.');
+			// });
+
+			// select() - input valueတွေကို selectဆွဲပြီး cursor လွှတ်လိုက်တဲ့အချိန်မှာအလုပ်လုပ်
+			$('input').select(function(){
+				console.log('You select ed to some text.');
+			});
+
+			// keydown()- key တစ်ခုခုကို နှိပ်ပြီး ပြန်မလွှတ်ခင်ကို အလုပ်လုပ်
+			// 			- tab keyကိုနှိပ်လိုက်တဲ့အချိန်မှာ တခြား input တစ်ခုရောက်သွားတယ်ဆိုပေမဲ့လည်း keydownဖြစ်နေတဲ့အချိန် အလုပ်လုပ်တာမို့
+			var q = 0;
+			$('#age').keydown(function(){
+				console.log('age is working by keydown');
+				console.log( q+= 1);
+			});
+
+			// keypress() - same as keydown();
+			// 			  
+			var x = 0;
+			$('#phone').keypress(function(){
+				console.log('phone is working by keypress');
+				console.log(x ++);
+			});
+
+			// keyup() - key ကို ဖိပြီး ပြန်လွှတ်လိုက်တဲ့အချိန်မှအလုပ်လုပ်
+					// - tab key နှိပ်ပြီးပြန်လွှတ်ရင်တော့ အလုပ်မလုပ် (cuz tabခုန်ပြီး ပြန်လွှတ်တဲ့အချိန် အခြားinput တစ်ခုကို ရောက်သွားပြီမို့)
+			var a=0;
+			$('#nrc').keyup(function(){
+				console.log('Nrc is working by keyup');
+				console.log( a += 1);
+			});
+
+			// submit() - clickနဲ့တူ but သူကကျ form တစ်ခုလုံးအနေနဲ့ပြန်ခေါ်ပြီး submitလုပ်တဲ့အချိန်မှ အလုပ်လုပ်
+			// 			- clickကကျ button ကိုပဲခေါ်ပြီး clickလုပ်ခိုင်းရင်ကိုရ
+			$('form').submit(function(e){
+
+				console.log('Form submit is working');
+
+				e.preventDefault();
+			})
+
+
+
+
+		});
+	</script>
+</body>
+</html>

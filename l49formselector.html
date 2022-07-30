@@ -1,0 +1,278 @@
+<!-- 13July22, 18July22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Selector</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;flex: ;
+		}
+		.container{
+			width: 900px;
+			background: #f4f4f4;
+			padding: 20px;
+
+		}
+		.form-group{
+			margin: 10px 0;
+		}
+		.form-group label{
+			display: block;
+			margin-bottom: 5px;
+		}
+		.form-control{
+			width: 100%;
+		}
+		.form-check{
+			display: flex;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<!-- <img src="./img/logo1.png" alt="logo1"/> :image selector does not work for img tab -->
+
+
+		<form action="" method="" enctype="multipart/form-data">
+
+			<div >
+				<input type="image" src="./img/logo1.png"/>
+			</div>
+
+			<div class="form-group">
+				<label for="firstname">First Name</label>
+				<input type="text" name="firstname" id="firstname" class="form-control" autocomplete="off"/>
+			</div>
+
+			<div class="form-group">
+				<label for="lastname">Last Name</label>
+				<input type="text" name="lastname" id="lastname" class="form-control" autocomplete="off"/>
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" class="form-control" autocomplete="off"/>
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" class="form-control" autocomplete="off"/>
+			</div>
+
+			<div class="form-group form-check">
+				<label >Fav Color</label>
+				<input type="checkbox" name="favcolor" id="favcolorred" class="form-check-input" value="red"/>
+				<label for="favcolorred">Red</label>
+				<input type="checkbox" name="favcolor" id="favcolorgreen" class="form-check-input" value="green"/>
+				<label for="favcolorgreen">Green</label>
+				<input type="checkbox" name="favcolor" id="favcolorblue" class="form-check-input" value="blue" />
+				<label for="favcolorblue">Blue</label>
+			</div>
+
+			<div class="form-group form-check">
+				<label >Gender</label>
+				<input type="radio" name="gender" id="genderm" class="form-check-input" value="1"/>
+				<label for="genderm">Male</label>
+				<input type="radio" name="gender" id="genderf" class="form-check-input" value="2"/>
+				<label for="genderf">Female</label>
+			</div>
+
+			<div class="form-group">
+				<label for="country">Country</label>
+				<select name="country" id="country" class="form-control">
+					<option selected disabled>Choose Country</option>
+					<option value="mm">Myanmar</option>
+					<option value="th">Thailand</option>
+					<option value="ido">Indonesia</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="nrc">NRC</label>
+				<input type="file" name="nrc" id="nrc" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<!-- title - for tooltip -->
+				<span title="formember">Already registered???</span><a href="#" id="loginlink" title="formember">Login Here!!!</a>
+				<p title="forthx">Thank you for paying attention.</p>
+			</div>
+
+			<div class="form-group form-check">
+				<input type="checkbox" name="agree" id="agree" class="form-check-input"/>
+				<label for="agree">I agreed all above regulation</label>
+			</div>
+
+			<input type="reset" class="btn" value="Reset"/>
+			<button type="submit" class="btn" disabled>Submit</button>
+		</form>
+
+	</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// to all input but not include button
+			// $("input").css({
+			// 	"background":"peachpuff",
+			// 	"border":"1px dashed red"
+			// });
+
+			// include all input type tag including button
+			// $(":input").css({
+			// 	"background":"peachpuff",
+			// 	"border":"1px dashed red"
+			// });
+
+			// $(":text").css({
+			// 	"background":"peachpuff",
+			// 	"border":"1px dashed red"
+			// });
+
+			// $(":password").css({
+			// 	"background":"peachpuff",
+			// 	"border":"1px dashed red"
+			// });
+
+			// $(":checkbox").css({
+
+			// 	// for checkbox color use accent-color property from css
+			// 	"accent-color":"red"
+			// });
+
+			// $(":radio").css({
+			// 	"accent-color":"red"
+			// });
+
+			// :checked for checkbox
+			// $("input[type=checkbox]").click(function(){
+				// console.log('hi');
+
+				// this နဲ့ စစ်ထားရင် နှိပ်လိုက်တဲ့တစ်ခုစာအတွက်ပဲ check ဖြစ်လားမဖြစ်လား ထုတ်ပြီး resultပေးတာ
+				// if($(this).is(":checked")){
+				// 	console.log('favcolor checked');
+				// }else{
+				// 	console.log('favcolor not yet checked');
+				// };
+
+				// checkbox မှာ type လိုမျိုးး sameဖြစ်တာ က name attr မို့ အာ့ကိုလှမ်းခေါ်ပြီးစစ်တာ
+				// this နဲ့မတူတာက သူက အကုန်လုံးမှာ ပါနေတာဖြစ်တဲ့အတွက် တစ်ခုချင်းစီcheck ဖြစ်တဲ့အချိန်ဆိုရင်တော့ resultထုတ်ပေးပြီး
+				// uncheckedဖြစ်တဲ့အချိန်(else conditionဖြစ်တဲ့အချိန်)ကိုတော့ အကုန်လုံး unchecked ဖြစ်သွားမှပဲထုတ်ပေးတယ် တစ်ခုတည်း uncheckဖြစ်ရုံနဲ့ မထုတ်ပေး
+
+				// if($("input[name=favcolor]").is(":checked")){
+				// 	console.log('favcolor checked');
+				// }else{
+				// 	console.log('favcolor not yet checked');
+				// };
+			// });
+
+			// $("input[type=checkbox]").click(function(){
+			// 		if($(this).val() === "red"){
+			// 			console.log($(this).is(":checked") ? "My Fav Color is Red" : "Sorry my fav color is not Red");
+			// 		}else if($(this).val() === "green"){
+			// 			console.log($(this).is(":checked") ? "My Fav Color is Green" : "Sorry my fav color is not Green");
+			// 		}else if($(this).val() === "blue"){
+			// 			console.log($(this).is(":checked") ? "My Fav Color is Blue" : "Sorry my fav color is not Blue");
+			// 		}
+
+			// });
+
+			// :checked for radio
+			// $("input[type=radio]").click(function(){
+			// 	if($("input[name=gender]").is(":checked")){
+			// 		console.log("gender checked	");
+			// 	}
+			// });
+
+			// $("input[type=radio]").click(function(){
+			// 	if($(this).val() === "1"){
+			// 		console.log("I am male");
+			// 	}else{
+			// 		console.log("I am female");
+			// 	}
+			// });
+
+			// :selected
+
+			// $('#country').change(function(){
+			// 	// console.log('hi');
+
+			// 	// var getcountry = $(this);
+			// 	// console.log(getcountry.val());
+			// 	// console.log(getcountry.text());
+
+			// 	// var getcountry = $(":selected");
+			// 	// id နဲ့ခေါ်ရင် :selectedနဲ့ကြား space ခြားး tag နဲ့ဆို ခြားစရာမလို
+			// 	var getcountry = $("#country :selected");
+			// 	var getcountry = $("option:selected");
+			// 	var getcountry = $("#country option:selected");
+			// 	console.log(getcountry.val());
+			// 	console.log(getcountry.text());
+
+			// });
+
+			// :file
+			// $(':file').css({
+			// 	"background":"peachpuff",
+			// 	"border":"1px dotted red"
+			// });
+
+			// :image
+			// $(":image").css("width","100px");
+
+			// :reset
+			$(":reset").css("background","peachpuff");
+			$(":reset").click(function(e){
+				console.log("hello i am reset button");
+				e.preventDefault();
+			});
+
+			// :submit
+			$(":submit").css("background","papayawhip");
+
+			// :button
+			$(":button").click(function(e){
+				console.log("hello i am button");
+				e.preventDefault();
+			});
+
+
+			// attribute selector နဲ့လှမ်းခေါ်တဲ့ ပုံစံ id or class attribute ရှိတဲ့ကောင်တိုင်းသက်ရောက်
+			// or parent မှာ id or class attribute ပါရင်လည်းး childမှာသက်ရောက်
+
+			// $("[id]").css("color","red");
+			// $("[class]").css("color","cadetblue");
+
+			// $("[title]").css("color","cadetblue");
+			// $("[title='formember']").css("color","cadetblue");
+
+			// $("span[title]").css("color","orangered");
+			// $("a[title]").css("color","darkcyan");
+			$("p[title='forthx']").css("color","violet");
+
+			$("#agree").click(function(){
+				if($(this).is(":checked")){
+					$("[type='submit']").removeAttr("disabled");
+				}else{
+					// standlone attributeမို့ valueနေရာ disabledပဲပြန်ရေးရေး trueပဲပြန်ရေးရေးရ
+					// $("[type='submit']").attr("disabled","disabled");
+					$("[type='submit']").attr("disabled",true);
+				}
+			});
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:has() selector</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container{
+			width: 1200px;
+			background: #f4f4f4;
+			padding: 20px;
+
+			display: flex;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: cadetblue;
+			margin: 0px 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="box box1">Box 1</div>
+		<div class="box box2"><p>Box 2</p></div>
+		<div class="box box3">Box 3</div>
+		<div class="box box4">Box 4</div>
+		<div class="box box5">Box 5</div>
+	</div>	
+
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			// :has() - သူရဲ့ parent ကိုအလုပ်လုပ်
+			// $(".box").css("background","palevioletred");
+			// $(":has(.box3)").css("background","palevioletred");  - color filled to html
+
+			// $("div:has(.box3)").css("background","palevioletred"); - color filled to container
+
+			// $("div:has(p)").css("background","palevioletred");  - color filled to container and box2
+
+			// $("div:has(p)").text('hey i am...'); - overwrite to all box
+			$(".box:has(p)").text('hey i am...'); 
+
+
+
+		});
+	</script>
+</body>
+</html>

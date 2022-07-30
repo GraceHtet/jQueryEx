@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>before & after Method</title>
+</head>
+<body>
+
+	<h1>Hello Myanmar</h1>
+
+	<h1>Hello Thailand</h1>
+
+	<h2>Hello Singapore</h2>
+
+	<button type="button" id="before">Before Insert</button>
+	<button type="button" id="after">After Insert</button>
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// before()
+			// text element တစ်ခုအနေနဲ့ အရှေ့မှာဝင် 
+			// html codeတွေပါ ထည့်ရေးလို့ရ အလုပ်လုပ်
+			$('#before').click(function(){
+				// console.log('i am before');
+
+				$('h1').before('<p><b><i>Save Myanmar</i></b></p>');
+			});
+
+			// after()
+			// text element တစ်ခုအနေနဲ့ အနောက်မှာဝင် 
+			// html codeတွေပါ ထည့်ရေးလို့ရ အလုပ်လုပ်
+			$('#after').click(function(){
+				console.log('i am after');
+
+				$('h1').after('<p><b><i>Pray Myanmar</i></b></p>');
+			});
+		})
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>prepend and append Method</title>
+</head>
+<body>
+
+	<h1>Hello Myanmar</h1>
+
+	<button type="button" id="prependbtn">Prepend Text</button>
+	<button type="button" id="appendbtn">Append Text</button>
+
+	<button type="button" id="appendtobtn">AppendTo Text</button>
+
+
+	<script  src="./libs/jquery-3.6.0.min.js" type="	text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			// element ထဲကို text content အနေနဲ့ဝင်လာ။ html code တွေအလုပ်လုပ်
+
+			// prepend()
+			$('#prependbtn').click(function(){
+				// $('h1').prepend('Greeting Message = ');
+				$('h1').prepend('<i>Greeting Message = </i>');
+			});
+
+			// append()
+			$('#appendbtn').click(function(){
+				// $('h1').prepend('Greeting Message = ');
+				$('h1').append('<i> : Greeting </i>');
+			});
+
+			// appendto() - ကိုယ် append လုပ်ချင်တဲ့ element ကိုနောက်မှာရေး
+			// 			  - text conent only ဆိုအလုပ်မလုပ်၊ tag တွေပါမှအလုပ်လုပ်
+			// 			  - append လိုပဲ element အနောက်ကဝင်
+			$('#appendtobtn').click(function(){
+
+				// $('Bye Bye').appendTo('h1'); - no result , cuz appendto only work with text which include html tags
+				$('<i><u> Hello </u></i>').appendTo('h1');
+			});
+
+		});
+	</script>
+
+</body>
+</html>

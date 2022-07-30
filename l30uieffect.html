@@ -1,0 +1,243 @@
+<!-- 14Jun22 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI effect & show/hide/toggle Method</title>
+	<!-- jquery-ui css1 js1 -->
+	<link href="./libs/jquery-ui-1.13.2/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		.container{
+			width: 1200px;
+			background: #000;
+
+			display: flex;
+			padding: 20px;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+
+			margin: 0 10px;
+		}
+		.square1,.square7,.square13{
+			background: gainsboro;
+		}
+		.square2,.square8{
+			background: oldlace;
+		}
+		.square3,.square9{
+			background: bisque;
+		}
+		.square4,.square10{
+			background:olivedrab;
+		}
+		.square5,.square11{
+			background:firebrick;
+		}
+		.square6,.square12{
+			background:thistle;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="box square1">1</div>
+		<div class="box square2">2</div>
+		<div class="box square3">3</div>
+		<div class="box square4">4</div>
+		<div class="box square5">5</div>
+		<div class="box square6">6</div>
+		<div class="box square7">7</div>
+		<div class="box square8">8</div>
+		<div class="box square9">9</div>
+		<div class="box square10">10</div>
+		<div class="box square11">11</div>
+		<div class="box square12">12</div>
+		<div class="box square13">13</div>
+	</div>
+
+	<div class="control">
+		<button type="button" id="shakebtn">Shake</button>
+		<button type="button" id="bouncebtn">Bounce</button>
+		<button type="button" id="blindbtn">Blind</button>
+		<button type="button" id="clipbtn">Clip</button>
+		<button type="button" id="dropbtn">Drop</button>
+		<button type="button" id="fadebtn">Fade</button>
+		<button type="button" id="foldbtn">Fold</button>
+		<button type="button" id="highlightbtn">Highlight</button>
+		<button type="button" id="puffbtn">Puff</button>
+		<button type="button" id="pulsatebtn">Pulsate</button>
+		<button type="button" id="sizebtn">Size</button>
+		<button type="button" id="slidebtn">Slide</button>
+	</div>
+	
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.2/jquery-ui.min.js" type="text/javascript"></script>	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hide');
+			
+			// effect() - jquery methodမဟုတ် ui method, ui ချိတ်ထားမှသုံးလို့ရ
+			// $(selector).effect(type,speed);
+			// $(selector).effect(type,{paras},speed);
+
+
+			// type - "shake" - ဘယ်ညာ အပေါ်အောက် လှုပ်
+			$("#shakebtn").click(function(){
+				// $(".square1").effect("shake",3000);
+				// $(".square1").effect("shake","slow");
+
+				$(".square1").effect("shake",{
+					// "direction":"left" - default
+					// "direction":"right"
+					// "direction":"up"
+					"direction":"down",
+					"times":2,
+					"distance":100  // pxပါပါမပါပါရ
+				},2000);
+			});
+
+
+			// type - "bounce" - ခုန်ဆွခုန်ဆွ
+			$("#bouncebtn").click(function(){
+				// $(".square2").effect("bounce","slow");
+				$(".square2").effect("bounce",{
+					// "direction":"left",
+					// "direction":"down"
+					// "direction":"up" - default
+					"direction":"right",
+					"times":2,
+					"distance":200
+					},"slow");
+			});
+
+
+			// type-"blind" အပေါ် အောက် ဘယ်ညာ directionပေးထားတဲ့ဘက်ကို လိပ်တက်သွားတာcalenderလိုမျိုး
+			// slide up နဲ့တူ
+			$("#blindbtn").click(function(){
+				// $(".square3").effect("blind",2000);
+				$(".square3").effect("blind",{
+					// "direction":"left"
+					// "direction":"right"
+					// "direction":"up" -default
+					"direction":"down"
+					// "times" နဲ့ distanceမရှိ
+				},2000);
+			});
+
+
+			// type-"clip" - အလယ်ကိုကျုံ့ဝင်သွား
+			$("#clipbtn").click(function(){
+				// $(".square4").effect("clip",2000);
+				$(".square4").effect("clip","slow");
+				
+					// parametersမရှိ("direction" "times" နဲ့ distanceမရှိ)
+				
+			});
+
+
+			// type-"drop" - တဖြည်းဖြည်းမှိန်သွားတာ ရွေ့သွားရင်း သူ့နေရာကိုလည်း တခြားးelement အစားဝင်
+			$("#dropbtn").click(function(){
+				// $(".square5").effect("drop",2000);
+				$(".square5").effect("drop",{
+					// "direction":"left" - default
+					// "direction":"right"
+					// "direction":"up" 
+					"direction":"down"
+					// "times" နဲ့ distanceမရှိ
+				},2000);
+			});
+
+
+			// type-"explode" - ကွဲထွက်သွား
+			$("#explodebtn").click(function(){
+				$(".square6").effect("explode",2000);
+				// $(".square6").effect("explode","slow");
+
+				// parametersမရှိ("direction" "times" နဲ့ distanceမရှိ)
+			});
+
+
+			// type-"fade" တဖြည်းဖြည်းမှိန်သွားတာ သူ့နေရာမှာတင်ပဲ ၊ ပျောက်သွားရင် spacing အလွတ်ကျန်
+			$("#fadebtn").click(function(){
+				// $(".square7").effect("fade",2000);
+				$(".square7").effect("fade","fast");
+
+				// parametersမရှိ("direction" "times" နဲ့ distanceမရှိ)
+			});
+
+
+			// type-"fold" - blind လိုမျိုးပဲ butဒီမှာကကျ direction တစ်မျိုးပဲရှိ အပေါ်ကိုလိပ်တက်ပြီး ဘယ်ဘက်ကို သိမ်းသွားတာ
+			$("#foldbtn").click(function(){
+				// $(".square8").effect("fold",2000);
+
+				$(".square8").effect("fold","slow");
+				// parametersမရှိ("direction" "times" နဲ့ distanceမရှိ)
+			});
+
+
+			// type-"highlight" - နှိပ်လိုက်ရင် အရောင်ပြောင်းသွား ခဏတစ်ဖြုတ်စာ ပြီးရင် နဂိုအရောင်ပြန်ပေါ်
+			$("#highlightbtn").click(function(){
+
+				// $(".square9").effect("highlight",2000);
+				$(".square9").effect("highlight",{
+					"color":"red" // highlightအရောင်ပြောင်းဖို့
+				},2000);
+			});
+
+
+			// type-"puff" -ကြီးပြီးပျောက်သွား သူ့နေရာ တခြားးကောင်ဝင်လာ
+			$("#puffbtn").click(function(){
+
+				// $(".square10").effect("puff",2000);
+				$(".square10").effect("puff","fast");
+				// parametersမရှိ("direction" "times" နဲ့ distanceမရှိ)
+				
+			});
+
+
+			// type-"pulsate" -မှိတ်တုတ်မှိတ်တုတ်ဖြစ်
+			$("#pulsatebtn").click(function(){
+
+				// $(".square11").effect("pulsate",2000);
+				$(".square11").effect("pulsate",{
+					"times":"10"
+					// times ကြိမ်နှုန်းပဲရှိ
+				},"2000");
+				
+			});
+
+
+			// type-"size" -sizeသေးပြီး ကျုံ့ဝင်သွား puffနဲ့ပြောင်းပြန်
+			$("#sizebtn").click(function(){
+
+				$(".square12").effect("size",2000);
+				// $(".square12").effect("size","fast");
+				// parametersမရှိ("direction" "times" နဲ့ distanceမရှိ)
+			});
+
+			// type-"slide" blindနဲ့တူ butဒါကslidedown လိုပုံစံမျိုးမရှိတာကနေ ပေါ်လာတာ
+			$("#slidebtn").click(function(){
+				// $(".square13").effect("slide",2000);
+				$(".square13").effect("slide",{
+					// "direction":"left" -default
+					// "direction":"right"
+					// "direction":"up" 
+					"direction":"down"
+					// "times" နဲ့ distanceမရှိ
+				},2000);
+			});
+		});
+	</script>
+</body>
+</html>
